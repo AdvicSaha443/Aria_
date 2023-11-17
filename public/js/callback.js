@@ -64,5 +64,8 @@ async function showUserData(access_token, refresh_token){
         button.addEventListener('click', () => {
             window.location.replace(`http://localhost:3000/web-player`);
         });
+
+        //storing the user data in session storage
+        window.sessionStorage.setItem('user', JSON.stringify(userData));
     });
 };
