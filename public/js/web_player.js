@@ -22,9 +22,11 @@ async function fetchWebApi(endpoint, method, body){
         },
         method: method,
         body: JSON.stringify(body),
+    }).then(async (response) => {
+        return await response.json();
     });
 
-    return await res.json();
+    //return await res.json();
 }
 
 async function getUserInformation(){
@@ -32,5 +34,7 @@ async function getUserInformation(){
 }
 
 async function updateInformation(){
-    
+    const userData = getUserInformation();
+
+    console.log(userData);
 }

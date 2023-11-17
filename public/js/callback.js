@@ -39,6 +39,7 @@ function handleAuthResponse(){
 
     }else{
         alert(this.responseText);
+        window.location.replace("http://localhost:3000/login");
     };
 };
 
@@ -49,7 +50,7 @@ async function showUserData(access_token, refresh_token){
             Authorization: `Bearer ${access_token}`
         },
     })
-    .then(res => res.json())
+    .then(res => res.json()) // this is same as .then(res => {return res.json()}) but not same as, .then(res => {res.json()}), when not using the curly bracket, the compiler automatically kinda adds a return statement in front of res.json()
     .then(userData => {
         web_player_link+=access_token
         
