@@ -6,9 +6,11 @@
         <title>Aria Web-Player</title>
 
         <link rel="stylesheet" href="../css/web_player.css">
+
         <script type="text/javascript" src="../js/web_player.js"></script>
+        <script type="text/javascript" src="../js/pages.js"></script>
     </head>
-    <body onload="updateInformation();">
+    <body onload="updateInformation();addEventListenerToButtons()">
         <div class="container" id="container">
 
             <div class="navbarDiv" id="navbarDiv">
@@ -18,11 +20,11 @@
                         <h3>web</h3>
                     </div>
                     <div class="navigationsDiv" id="navigationsDiv">
-                        <span><button class="btn"><h3>Player</h3></button></span>
-                        <span><button class="btn"><h3>Search</h3></button></span>
-                        <span><button class="btn"><h3>Playlist</h3></button></span>
-                        <span><button class="btn"><h3>Statistics</h3></button></span>
-                        <span><button class="btn"><h3>Settings</h3></button></span>
+                        <span><button class="btn" id="PlayerPageButton"><h3>Player</h3></button></span>
+                        <span><button class="btn" id="SearchPageButton"><h3>Search</h3></button></span>
+                        <span><button class="btn" id="PlaylistPageButton"><h3>Playlist</h3></button></span>
+                        <span><button class="btn" id="StatisticsPageButton"><h3>Statistics</h3></button></span>
+                        <span><button class="btn" id="SettingsPageButton"><h3>Settings</h3></button></span>
                     </div>
                 </div>
                 

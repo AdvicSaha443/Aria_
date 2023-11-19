@@ -50,9 +50,10 @@ async function fetchWebApi(endpoint, method, body){
 async function storeUserInformation(){
     await fetchWebApi('v1/me', "GET")
     .then(async (response) => {
-        if(response?.error?.status == 401) await refreshAccessToken()//.then(storeUserInformation);
+        if(response?.error?.status == 401) await refreshAccessToken();//.then(storeUserInformation);
         else{
-            window.localStorage.setItem('user', JSON.stringify(response));
+            window.sessionStorage.setItem('user', JSON.stringify(response));
+            updateInformation();
         };
     });
 };
@@ -70,16 +71,29 @@ async function updateInformation(){
         imageDiv.id = "userImage";
         imageDiv.className = "userImage";
 
+        let button1 = document.createElement('button');
+        button1.className = "UserPageButton";
+        button1.addEventListener('click', () => {
+            // adding code to change the page even through the logo.
+            console.log("The logo has been clicked!");
+        });
+        
+        let button2 = document.createElement('button');
+        button2.id = "UserPageButton";
+        button2.classList.add("UserPageButton", "btn");
+
         let img = document.createElement('img');
         img.src = userData?.images[0]?.url || "https://w7.pngwing.com/pngs/981/645/png-transparent-default-profile-united-states-computer-icons-desktop-free-high-quality-person-icon-miscellaneous-silhouette-symbol-thumbnail.png";
         img.alt = "User Image";
 
-        let h2 = document.createElement('h2');
-        h2.innerHTML = userData.display_name;
+        let h3 = document.createElement('h3');
+        h3.innerHTML = userData.display_name;
 
         imageDiv.appendChild(img);
-        rightNavbarDiv.appendChild(imageDiv);
-        rightNavbarDiv.appendChild(h2);
+        button1.appendChild(imageDiv);
+        button2.appendChild(h3);
+        rightNavbarDiv.appendChild(button1);
+        rightNavbarDiv.appendChild(button2);
     }else{
         await storeUserInformation()//.then(updateInformation);
     };

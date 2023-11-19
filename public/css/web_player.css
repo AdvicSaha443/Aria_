@@ -49,13 +49,20 @@ body{
     cursor: pointer;
 }
 
-.rightNavbar h2{
+.rightNavbar h3{
     color: #fff;
     cursor: pointer;
 }
 
-.rightNavbar h2:hover{
+.rightNavbar h3:hover{
     color: #168aad;
+}
+
+.UserPageButton{
+    background: none;
+	border: none;
+	font: inherit;
+	cursor: pointer;
 }
 
 /* logo Design*/
@@ -112,4 +119,17 @@ body{
 
 .playerDiv{
     height: 10vh;
+}
+
+
+/* WEB PLAYER PAGE*/
+
+.contentDiv div{
+    height: 100%;
+    display: none;
+};
+
+
+.PlayerPage{
+
 }
