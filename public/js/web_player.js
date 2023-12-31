@@ -50,8 +50,12 @@ async function fetchWebApi(endpoint, method, body){
 async function storeUserInformation(){
     await fetchWebApi('v1/me', "GET")
     .then(async (response) => {
-        if(response?.error?.status == 401) await refreshAccessToken();//.then(storeUserInformation);
+        if(response?.error?.status == 401){
+            alert("The Refresh token has expired!");
+            await refreshAccessToken();
+        }//.then(storeUserInformation);
         else{
+            console.log("The Access token has not yet expired!");
             window.sessionStorage.setItem('user', JSON.stringify(response));
             updateInformation();
         };
@@ -98,3 +102,5 @@ async function updateInformation(){
         await storeUserInformation()//.then(updateInformation);
     };
 };
+
+updateInformation();

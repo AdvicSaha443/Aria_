@@ -11,6 +11,11 @@ function getAccessToken(){
     if(URLString.length > 0){
         const URLParams = new URLSearchParams(URLString);
         code = URLParams.get('code');
+        
+        if(!code){
+            alert("Some Error occured while logging. Please Try again after some time");
+            window.location.replace('http://localhost:3000');
+        };
     }else{
         //user is not logged in!
         alert("You are not logged in");

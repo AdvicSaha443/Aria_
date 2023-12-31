@@ -6,11 +6,12 @@
         <title>Aria Web-Player</title>
 
         <link rel="stylesheet" href="../css/web_player.css">
+        <link rel="stylesheet" href="../css/userPage.css">
 
-        <script type="text/javascript" src="../js/web_player.js"></script>
-        <script type="text/javascript" src="../js/pages.js"></script>
+        <script type="module" src="../js/web_player.js"></script>
+        <script type="module" src="../js/pages.js"></script>
     </head>
-    <body onload="updateInformation();addEventListenerToButtons()">
+    <body onload="">
         <div class="container" id="container">
 
             <div class="navbarDiv" id="navbarDiv">
@@ -54,7 +55,17 @@
                 </div>
 
                 <div class="UserPage" id="UserPage">
-                    <h2>This is the User Page</h2>
+                    <div class="userPageContent" id="userPageContent">
+                        <div class="userPageContentSection" id="userPageContentSection1">
+                            <h1>Permissions</h1>
+                            <div class="userPageContentSectionMainContent" id="userPageContentSectionMainContent1">
+                                <h4>Select the Permissions which you'd like us to use: </h4>
+                                
+                                <form id="userPagePermissionForm" action=""></form>
+                            </div>
+                        </div>
+                        <!--This will be having sub-divisions for each classes-->
+                    </div>
                 </div>
 
             </div>
