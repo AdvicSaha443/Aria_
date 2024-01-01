@@ -44,7 +44,7 @@ function addEventListenerToButtons(){
 };
 
 function addOptions(){
-    Player.getPermissions(window.localStorage.getItem('Permissions'));
+    Player.getPermissions(window.localStorage.getItem('permissions'));
 
     let i = 1;
     Array.from(Object.keys(Player.PERMISSIONS)).forEach((perms) => {
@@ -58,41 +58,14 @@ function addOptions(){
 
         const labelElem = document.createElement('label');
         labelElem.for = `scope${i++}`;
-        labelElem.innerHTML = perms;
 
-        const descriptionElem = document.createElement('h5');
-        descriptionElem.innerHTML = Player.PERMISSIONS[perms].description;
-        descriptionElem.style.display = "none";
-
-        const showButtonnElem = document.createElement('button');
-        showButtonnElem.innerHTML = "[show description]";
-        showButtonnElem.type = "button"; //cause the button is inside the form, and without this, it would cause the submission of the form
-        showButtonnElem.className = "UserPagePermissionSectionButtons";
-
-        const hideButtonElem = document.createElement('button');
-        hideButtonElem.innerHTML = "[hide]";
-        hideButtonElem.style.display = "none";
-        hideButtonElem.type = "button";
-        hideButtonElem.className = "UserPagePermissionSectionButtons";
+        const textElem = document.createElement("h5");
+        textElem.innerHTML = Player.PERMISSIONS[perms].description;
         
-        showButtonnElem.addEventListener('click', () => {
-            descriptionElem.style.display = "block";
-            showButtonnElem.style.display = "none";
-            hideButtonElem.style.display = "block";
-        });
-
-        hideButtonElem.addEventListener('click', () => {
-            descriptionElem.style.display = "none";
-            showButtonnElem.style.display = "block";
-            hideButtonElem.style.display = "none";
-        });
-
-        labelElem.appendChild(showButtonnElem);
-        labelElem.appendChild(hideButtonElem);
-        labelElem.appendChild(document.createElement("br"));
-        labelElem.appendChild(descriptionElem);
-        form.appendChild(inputElem);
+        labelElem.appendChild(inputElem);
+        labelElem.append(textElem);
         form.appendChild(labelElem);
+        form.appendChild(document.createElement("br"));
     });
 };
 

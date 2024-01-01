@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
     var state = generateRandomString(16);
     var scope = 'user-read-private user-read-email';
+    // var scope = localStorage.getItem('permissions');
 
     res.redirect('https://accounts.spotify.com/authorize?' + 
         querystring.stringify({
